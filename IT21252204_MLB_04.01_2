@@ -1,0 +1,95 @@
+// IT2125204_lab.h
+#include <string>
+using namespace std;
+
+class Lab{
+  private:
+    int labNo;
+    string location;
+  public:
+    Lab();
+    void setLabDetails(int no, string loc);
+    void displayLabDetails();
+    ~Lab();
+};
+
+
+// IT21252204_lab.cpp
+#include <iostream>
+#include "lab.h"
+#include <cstring>
+using namespace std;
+
+Lab::Lab()
+{
+  labNo = 0;
+  location = "None";
+}
+
+void Lab::setLabDetails(int no, string loc)
+{
+  labNo = no;
+  location = loc;
+}
+
+void Lab::displayLabDetails()
+{
+  cout << "Lab No: " << labNo << endl;
+  cout << "Location: " << location << endl;
+}
+
+Lab::~Lab()
+{
+    cout << " " << endl << endl;
+}
+
+
+// IT2152204_report.h
+#include "donor.h"
+#include <string>
+using namespace std;
+
+class Report{
+  private:
+    int reportID;
+    string bloodType;
+  public:
+    Report();
+    void setReportDetails(int id, string bt);
+    void displayReportDetails(Donor* D);
+    ~Report();
+};
+
+
+// IT21252204_report.cpp
+#include <iostream>
+#include <cstring>
+#include "report.h"
+
+using namespace std;
+
+Report::Report()
+{
+  reportID = 0;
+  bloodType = "None";
+}
+
+void Report::setReportDetails(int id, string bt)
+{
+  reportID = id;
+  bloodType = bt;
+}
+
+void Report::displayReportDetails(Donor* D)
+{
+  cout << "Report ID: " << reportID << endl;
+  cout <<  "Donor Name: " << D->getDname() << endl;
+  cout <<  "Donor ID: " << D->getDID() << endl;
+  cout << "Blood Type: " << bloodType << endl;
+}
+
+Report::~Report()
+{
+  cout << " " << endl << endl;
+}
+
