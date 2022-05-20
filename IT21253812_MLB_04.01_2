@@ -1,0 +1,53 @@
+// IT21253812_Admin.h
+
+#include <iostream>
+#include <cstring>
+#include "user.h"
+#include "appointment.h"
+using namespace std;
+
+class Admin : public User
+{
+private :
+       Appointment* apmnt[10];
+       int AID ;
+       string Aname;
+public:
+  Admin();
+  void setUserDetails(int ID , string name , string userName , char pword[10] , string contctNo);
+  void displayDetails();
+  
+  ~Admin();
+};
+
+// IT21253812_Admin.cpp
+
+#include <iostream>
+#include "Admin.h"
+#include <cstring>
+using namespace std;
+	
+Admin::Admin()
+{
+};
+void Admin::setUserDetails(int ID , string name , string userName , char pword[10] , string contctNo)
+{
+   AID =ID;
+  Aname =name;
+         username = userName;
+         strcpy(password, pword);
+         contact = contctNo;
+ };
+
+// Display UserName & ContactNo
+ void Admin::displayDetails()
+{
+  cout<<"Username :"<<username<< endl;
+  cout<<"AdminID :"<<AID<< endl;
+  cout<<"Adminname :"<<Aname<< endl;
+  cout<<"ContactNo:" <<contact<< endl;
+};
+Admin::~Admin()
+{
+  cout << "" << endl << endl;
+};
