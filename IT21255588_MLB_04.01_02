@@ -60,3 +60,21 @@ Donor::~Donor()
 {
 	cout << " " << endl << endl;
 }
+
+//IT21255588_user.h
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+class User
+{
+protected:
+	string username;
+	char password[20];
+	string contact;
+public:
+	User();
+	void checkUser();
+	~User();
+};
+
