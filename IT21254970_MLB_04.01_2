@@ -1,0 +1,85 @@
+
+//IT21254970_user.cpp
+#include "user.h"
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+User::User() {
+  username = "username";
+};
+
+void User::checkUser() {
+  int i,c1=0,c2=0,c3=0,c4=0;
+  int len =strlen(password);
+  for (i=0;i<len;i++)
+  {if (len >= 8)
+  {if(password[i]>=97 && password[i]<=122)
+    {c1=c1+1;}
+    if(password[i]>=65 && password[i]<=90)
+    {c2=c2+1;}
+      if(password[i]>=48 && password[i]<=57)
+    {c3=c3+1;}
+      if(password[i]>=33 && password[i]<=47)
+    {c4=c4+1;}}
+	else
+		cout << "Invalid password" << endl;
+}
+  if (c1>0 && c2>0 && c3>0 && c4>0)
+    cout << "Valid password"<< endl;
+  else
+		cout << "Invalid password" << endl;
+  }
+
+User::~User() {
+	cout << " " << endl << endl;
+};
+
+//IT21254970_Recipient.h
+#include <iostream>
+#include <cstring>
+#include "user.h"
+using namespace std;
+
+class Recipient :public User
+{
+private:
+	int RID;
+	string Rname;
+public:
+	Recipient();
+	void setUserDetails(int ID, string name, string userName, char pw[10], string contactNo);
+	void displayDetails();
+	~Recipient();
+};
+
+
+//IT21254970_Recipient.cpp
+#include <iostream>
+#include <cstring>
+#include "Recipient.h"
+using namespace std;
+
+Recipient::Recipient(){
+  RID = 0;
+  Rname = "Recipient name";
+};
+void Recipient::setUserDetails(int ID, string name,string userName, char pw[10], string contactNo){
+		RID = ID;
+		Rname = name;
+		username = userName;
+		strcpy(password, pw);
+		contact = contactNo;
+	};
+
+void Recipient::displayDetails() {
+	cout << "Recipient ID is: " <<RID << endl;
+	cout << "Recipient Name is: " << Rname << endl;
+	cout << "Username is: " << username << endl;
+	cout << "Contact number is: " << contact << endl;
+};
+
+Recipient::~Recipient()
+{
+	cout << " " << endl << endl;
+}
