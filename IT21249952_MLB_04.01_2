@@ -1,0 +1,51 @@
+//IT21249952_counsultant.h
+#include <iostream>
+#include <cstring>
+#include "user.h"
+using namespace std;
+
+class Consultant :public User
+{
+	    private : 
+	                 string Cname;
+	                 int CID;
+	                 
+	
+     	public :   
+                   Consultant();
+                   void setConsultantDetails(string cName,string userName,int cID,char pw[10],string contact);
+	                 void displayConsultantDetails();
+		               ~Consultant();	       
+};
+
+//consultant.cpp
+#include <iostream>
+#include <cstring>
+#include "consultant.h"
+using namespace std;
+
+Consultant::Consultant(){
+};
+void Consultant::setConsultantDetails(string cname, string UserName,int cID, char pw[10], string Contacts)
+{
+	             username=UserName;
+	             CID=cID;
+               Cname=cname;
+               contact=Contacts;
+               strcpy(password, pw);
+}
+
+void Consultant::displayConsultantDetails()
+{
+	             cout << "Username ="  << username << endl;
+	             cout << "cID =" << CID <<endl;
+	             cout << "Contacts ="  << contact << endl;
+	             cout<<   "Consultant name ="<<Cname<<endl;     
+}
+
+
+Consultant::~Consultant()
+{
+ cout<< " " << endl;
+}
+
