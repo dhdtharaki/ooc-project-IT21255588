@@ -1,0 +1,62 @@
+//IT21255588_Donor.h
+#include <iostream>
+#include <cstring>
+#include "user.h"
+#include "appointment.h"
+using namespace std;
+
+class Donor :public User
+{
+private:
+	int DID;
+	string Dname;
+	char *apmnt[100];
+public:
+	Donor();
+	void setUserDetails(int ID, string name, string userName, char pw[10], string contactNo);
+
+int getDID();
+string getDname();
+void displayDetails();
+	~Donor();
+};
+
+
+//IT21255588_Donor.cpp
+#include <iostream>
+#include "Donor.h"
+using namespace std;
+
+Donor::Donor()
+{	DID = 0;
+Dname = "Donor name";
+apmnt[1] = "new Appointment";
+};
+
+void Donor::setUserDetails(int ID, string name,string userName, char pw[10], string contactNo)
+{
+		DID = ID;
+		Dname = name;
+		username = userName;
+		strcpy(password, pw);
+		contact= contactNo;
+	};
+
+void Donor::displayDetails() {
+	cout << "Donor ID is: " << DID << endl;
+	cout << "Donor Name is: " << Dname << endl;
+	cout << "Username is: " << username << endl;
+	cout << "Contact number is: " << contact << endl;
+};
+
+int Donor::getDID(){
+  return DID;
+}
+string Donor::getDname(){
+  return Dname;
+}
+
+Donor::~Donor()
+{
+	cout << " " << endl << endl;
+}
